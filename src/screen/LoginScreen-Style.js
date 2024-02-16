@@ -1,9 +1,7 @@
 import styled from 'styled-components/native';
-import { View, TextInput, TouchableOpacity, Text } from 'react-native';
-import { Image } from 'react-native';
+import { View, TextInput, TouchableOpacity, Text, Image} from 'react-native';
 
-
-export const Container = styled(View)`
+const Container = styled(View)`
   flex: 1;
   justify-content: center;
   align-items: center;
@@ -11,16 +9,16 @@ export const Container = styled(View)`
   background-color: #0C2D57;
 `;
 
-export const IconContainer = styled(View)`
+const IconContainer = styled(View)`
     margin-bottom: 30px;
 `;
 
-export const Icon = styled(Image)`
+const Icon = styled(Image)`
   width: 100px;  
   height: 100px;  
 `;
 
-export const StyledInput = styled(TextInput)`
+const StyledInput = styled(TextInput)`
   height: 50px;
   width: 100%;
   background-color: #EFECEC;
@@ -29,7 +27,7 @@ export const StyledInput = styled(TextInput)`
   margin-bottom: 15px;
 `;
 
-export const SubmitButton = styled(TouchableOpacity)`
+const SubmitButton = styled(TouchableOpacity)`
   background-color: #FC6736;
   padding-vertical: 10px;
   padding-horizontal: 35px;
@@ -37,8 +35,41 @@ export const SubmitButton = styled(TouchableOpacity)`
   margin-top: 20px;
 `;
 
-export const SubmitButtonText = styled(Text)`
+const CheckboxContainer = styled(View)`
+  flex-direction: row;
+  align-items: center;
+`;
+
+const Checkbox = styled.Switch``;
+
+const CheckboxLabel = styled(Text)`
+color: white;
+`;
+
+const ForgotPasswordLink = styled(TouchableOpacity)`
+  margin-top: 10px;
+`;
+
+const ForgotPasswordText = styled(Text)`
+  color: white;
+`;
+
+const SubmitButtonText = styled(Text)`
   color: #fff;
   font-weight: bold;
   font-size: 18px;
 `;
+
+export { 
+  Container, 
+  IconContainer, 
+  Icon, 
+  StyledInput, 
+  SubmitButton,
+  CheckboxContainer, 
+  Checkbox, 
+  CheckboxLabel, 
+  ForgotPasswordLink,
+  ForgotPasswordText,
+  SubmitButtonText 
+};
