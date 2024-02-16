@@ -5,37 +5,50 @@ import {
     ForgotPasswordLink, ForgotPasswordText
 } from './LoginScreen-Style';
 import LoginCreateSession from '../services/ServiceLogin';
+import ErrorMessage from '../components/ErrorMessage';
+import SuccessMessage from '../components/SucessMessage';
 
 const LoginScreen = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [saveCredentials, setSaveCredentials] = useState(false);
+    const [error, setError] = useState(null);
+    const [successMessage, setSuccessMessage] = useState('');
 
     const handleLogin = async () => {
-
-        await LoginCreateSession({ username, password, saveCredentials }); 
+        setError(null);
+        try {
+            await LoginCreateSession({ username, password, saveCredentials }); 
+            setSuccessMessage('Login successful!');
+            setUsername('');
+            setPassword('');
+        } catch (error) {
+            setError('Incorrect user name or password or account is temporarily blocked.');
+        }
         console.log("Username:", username);
         console.log("Password:", password);
         console.log("Save credentials:", saveCredentials);
     }; 
 
     const handleForgotPassword = () => {
-        // Implementar lógica para redirecionar para a tela de redefinição de senha.
+        // Implementar lógica para redirecionar para a tela de redefinição de senha. 
         console.log("Esqueci minha senha");
     };
 
     return (
         <Container>
+             {error && <ErrorMessage message={error} />}
+             {successMessage && <SuccessMessage message={successMessage} />}
             <IconContainer>
                 <Icon source={require('../../assets/icon-login.png')} />
             </IconContainer>
             <StyledInput
-                placeholder="Username"
+                placeholder="Username:"
                 onChangeText={setUsername}
                 value={username}
             />
             <StyledInput
-                placeholder="Password"
+                placeholder="Password:"
                 onChangeText={setPassword}
                 value={password}
                 secureTextEntry
@@ -43,16 +56,17 @@ const LoginScreen = () => {
 
             <CheckboxContainer>
                 <Checkbox value={saveCredentials} onValueChange={setSaveCredentials} />
-                <CheckboxLabel>Salvar credenciais</CheckboxLabel>
+                <CheckboxLabel> Salvar Login </CheckboxLabel>
             </CheckboxContainer> 
  
-            <ForgotPasswordLink onPress={handleForgotPassword}>
-                <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
-            </ForgotPasswordLink>
 
             <SubmitButton onPress={handleLogin}>
                 <SubmitButtonText>Login</SubmitButtonText>
             </SubmitButton>
+
+            <ForgotPasswordLink onPress={handleForgotPassword}>
+                <ForgotPasswordText>Esqueci minha senha</ForgotPasswordText>
+            </ForgotPasswordLink>
         </Container>
     );
 };

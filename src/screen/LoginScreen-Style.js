@@ -10,7 +10,7 @@ const Container = styled(View)`
 `;
 
 const IconContainer = styled(View)`
-    margin-bottom: 30px;
+  margin-bottom: 30px;
 `;
 
 const Icon = styled(Image)`
@@ -38,20 +38,24 @@ const SubmitButton = styled(TouchableOpacity)`
 const CheckboxContainer = styled(View)`
   flex-direction: row;
   align-items: center;
+  align-self: flex-start;
+  padding: 5px;
 `;
 
 const Checkbox = styled.Switch``;
 
 const CheckboxLabel = styled(Text)`
-color: white;
+  color: white;
+  font-size: 15px;
 `;
 
 const ForgotPasswordLink = styled(TouchableOpacity)`
-  margin-top: 10px;
+  margin-top: 30px;
 `;
 
 const ForgotPasswordText = styled(Text)`
   color: white;
+  font-size: 14px;
 `;
 
 const SubmitButtonText = styled(Text)`
