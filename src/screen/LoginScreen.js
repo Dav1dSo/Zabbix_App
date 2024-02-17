@@ -4,11 +4,13 @@ import {
     IconContainer, StyledInput, SubmitButton, SubmitButtonText,
     ForgotPasswordLink, ForgotPasswordText
 } from './LoginScreen-Style';
+import { useNavigation } from '@react-navigation/native';
 import LoginCreateSession from '../services/ServiceLogin';
 import ErrorMessage from '../components/ErrorMessage';
 import SuccessMessage from '../components/SucessMessage';
 
 const LoginScreen = () => {
+    const navigation = useNavigation();
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [saveCredentials, setSaveCredentials] = useState(false);
@@ -22,6 +24,7 @@ const LoginScreen = () => {
             setSuccessMessage('Login successful!');
             setUsername('');
             setPassword('');
+            navigation.navigate('Home');
         } catch (error) {
             setError('Incorrect user name or password or account is temporarily blocked.');
         }

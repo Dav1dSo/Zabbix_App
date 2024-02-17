@@ -1,9 +1,21 @@
+// No arquivo App.js
 import React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 import LoginScreen from './src/screen/LoginScreen';
+import HomeScreen from './src/screen/HomeScreen';
+import 'react-native-gesture-handler';
+
+const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <LoginScreen />
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Login" component={LoginScreen} />
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
