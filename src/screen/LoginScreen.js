@@ -34,7 +34,6 @@ const LoginScreen = () => {
     }; 
 
     const handleForgotPassword = () => {
-        // Implementar lógica para redirecionar para a tela de redefinição de senha. 
         console.log("Esqueci minha senha");
     };
 
