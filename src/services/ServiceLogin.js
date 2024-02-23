@@ -1,6 +1,5 @@
 import axios from 'axios';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import getAuthToken from '../functions/GetTokenAcess';
 
 const apiUrl = 'http://192.168.1.10/api_jsonrpc.php';
 
@@ -28,7 +27,6 @@ const LoginCreateSession = async (data) => {
                 },
                 id: 2
             });
-            console.log(getAuthToken());
             console.log('Resposta da API (Check Authentication):', secondResponse.data);
         }
 

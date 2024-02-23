@@ -5,9 +5,9 @@ import {
     ForgotPasswordLink, ForgotPasswordText
 } from './LoginScreen-Style';
 import { useNavigation } from '@react-navigation/native';
-import LoginCreateSession from '../services/ServiceLogin';
-import ErrorMessage from '../components/ErrorMessage';
-import SuccessMessage from '../components/SucessMessage';
+import LoginCreateSession from '../../services/ServiceLogin';
+import ErrorMessage from '../../components/ErrorMessage';
+import SuccessMessage from '../../components/SucessMessage';
 
 const LoginScreen = () => {
     const navigation = useNavigation();
@@ -42,7 +42,7 @@ const LoginScreen = () => {
              {error && <ErrorMessage message={error} />}
              {successMessage && <SuccessMessage message={successMessage} />}
             <IconContainer>
-                <Icon source={require('../../assets/icon-login.png')} />
+                <Icon source={require('../../../assets/icon-login.png')} />
             </IconContainer>
             <StyledInput
                 placeholder="Username:"
